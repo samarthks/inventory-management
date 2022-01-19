@@ -133,3 +133,4 @@ const create_product_data= async (req, res) => {
     deleteAlldata,
     deleteparticulardata  
   }
+  
