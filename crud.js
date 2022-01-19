@@ -54,7 +54,7 @@ const create_product_data= async (req, res) => {
       );
       particulardata = getdata.rows[0];
       if (!particulardata) {
-        particulardata = { Information: " No data Available " };
+        particulardata = { Information: " No data Available. Please check product id. " };
       }
       res.json(particulardata);
     } catch (error) {
@@ -101,7 +101,7 @@ const create_product_data= async (req, res) => {
       );
       del = deletedata.rows[0];
       if (!del) {
-        del = { Information: " No data Available " };
+        del = { Information: "  No data Available. Please check product id. " };
       }
       res.json(del);
     } catch (error) {

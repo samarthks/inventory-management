@@ -15,7 +15,9 @@ const exportAlldata = async (req, res) => {
       }
       //console.log(csv);
       fs.writeFileSync("exportdata.csv", csv);
+      res.send(csv);
     });
+    res.attachment('exportdata.csv');
   } catch (error) {
     res.status(500).json(error);
   }
@@ -49,8 +51,11 @@ const exportparticulardata = async (req, res) => {
       }
 
       //console.log(csv);
-      fs.writeFileSync("exportdata.csv", csv);
+      fs.writeFileSync("exportdata.csv", csv)
+      res.send(csv);
     });
+    res.attachment("exportdata.csv");
+    
   } catch (error) {
     res.status(500).json(error);
   }
