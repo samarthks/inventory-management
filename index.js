@@ -16,7 +16,10 @@ const { exportAlldata, exportparticulardata } = require("./exportcsv");
 
 const app = express();
 const PORT = process.env.PORT||process.env.CLIENT_PORT;
-
+var corsOptions = {
+   origin:'https://github.com/samarthks/inventory-management.git',
+  optionSuccessStatus: 200,
+};
 const swaggerOptions = {
   definition: {
     openapi: "3.0.0",
@@ -85,7 +88,7 @@ app.use(express.json());
  *    500:
  *     description: error
  */
-app.post("/product", cors(), create_product_data);
+app.post("/product", cors(corsOptions), create_product_data);
 
 //Get all data
 /**
@@ -100,7 +103,7 @@ app.post("/product", cors(), create_product_data);
  *    500:
  *     description: error
  */
-app.get("/getproduct", getAlldata);
+app.get("/getproduct",cors(corsOptions), getAlldata);
 
 //Get particular employee with unique product id
 /**
@@ -121,7 +124,7 @@ app.get("/getproduct", getAlldata);
  *    200:
  *     description: success
  */
-app.get("/getproduct/:product_id", getparticulardata);
+app.get("/getproduct/:product_id",cors(corsOptions), getparticulardata);
 
 //edit data with particular id
 /**
@@ -151,7 +154,7 @@ app.get("/getproduct/:product_id", getparticulardata);
  *    200:
  *     description: success
  */
-app.put("/updateproduct/:product_id", updateparticulardata);
+app.put("/updateproduct/:product_id",cors(corsOptions), updateparticulardata);
 
 //delete data with particular id
 
@@ -173,7 +176,7 @@ app.put("/updateproduct/:product_id", updateparticulardata);
  *    200:
  *     description: success
  */
-app.delete("/deleteproduct/:product_id", deleteparticulardata);
+app.delete("/deleteproduct/:product_id",cors(corsOptions), deleteparticulardata);
 
 //delete all data
 /**
@@ -188,7 +191,7 @@ app.delete("/deleteproduct/:product_id", deleteparticulardata);
  *    500:
  *     description: error
  */
-app.delete("/deleteproduct", deleteAlldata);
+app.delete("/deleteproduct",cors(corsOptions), deleteAlldata);
 
 //export all data to csv
 /**
@@ -203,7 +206,7 @@ app.delete("/deleteproduct", deleteAlldata);
  *    500:
  *     description: error
  */
-app.get("/exportproduct", exportAlldata);
+app.get("/exportproduct",cors(corsOptions), exportAlldata);
 
 //export data with product id to csv
 /**
@@ -224,7 +227,7 @@ app.get("/exportproduct", exportAlldata);
  *    200:
  *     description: success
  */
-app.get("/exportproduct/:product_id", exportparticulardata);
+app.get("/exportproduct/:product_id",cors(corsOptions), exportparticulardata);
 
 app.listen(PORT, () => {
   console.log(`Server started at http://localhost:${PORT}`);
