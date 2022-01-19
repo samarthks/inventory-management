@@ -15,7 +15,7 @@ const {
 const { exportAlldata, exportparticulardata } = require("./exportcsv");
 
 const app = express();
-const PORT = process.env.CLIENT_PORT;
+const PORT = process.env.PORT||process.env.CLIENT_PORT;
 
 const swaggerOptions = {
   definition: {
