@@ -14,7 +14,7 @@ npm install
 ```
 
 Step 2:
-Install Postgresql and setup;
+Install Postgresql and setup
 
 Step 3:
 open postgresql
@@ -43,6 +43,15 @@ CREATE TABLE product_inventory(
 		CONSTRAINT prod PRIMARY KEY(product_id)
 );
 ```
+Step 7: Database connection in database_setup.js. If you change name or port or any other paraameter.Please change accordingly in the database_setup.js
+```sh
+const pool = new Pool({
+    host:process.env.DB_HOST,
+    port:process.env.DB_PORT,
+    database:process.env.DB_NAME
+})
+```
+
 **Note: I have attached the script.sql file for your reference.**
 
 After finishing previous steps.
