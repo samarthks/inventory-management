@@ -1,5 +1,4 @@
 require("dotenv").config();
-const cors = require("cors");
 const express = require("express");
 const swaggerJSDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
@@ -16,10 +15,7 @@ const { exportAlldata, exportparticulardata } = require("./exportcsv");
 
 const app = express();
 const PORT = process.env.PORT||process.env.CLIENT_PORT;
-var corsOptions = {
-   origin:'https://inventory-manage-app.herokuapp.com',
-  optionSuccessStatus: 200,
-};
+
 const swaggerOptions = {
   definition: {
     openapi: "3.0.0",
@@ -27,8 +23,7 @@ const swaggerOptions = {
       title: "Inventory Management API",
       version: "1.0.0",
       description: "Inventory Management API for all the products.",
-     // servers: ["http://localhost:8000"],
-     servers: ["https://inventory-manage-app.herokuapp.com"],
+      servers: ["http://localhost:8000"],
     },
   },
   apis: ["index.js"],
@@ -89,7 +84,7 @@ app.use(express.json());
  *    500:
  *     description: error
  */
-app.post("/product", cors(corsOptions), create_product_data);
+app.post("/product", create_product_data);
 
 //Get all data
 /**
@@ -104,7 +99,7 @@ app.post("/product", cors(corsOptions), create_product_data);
  *    500:
  *     description: error
  */
-app.get("/getproduct",cors(corsOptions), getAlldata);
+app.get("/getproduct", getAlldata);
 
 //Get particular employee with unique product id
 /**
@@ -125,7 +120,7 @@ app.get("/getproduct",cors(corsOptions), getAlldata);
  *    200:
  *     description: success
  */
-app.get("/getproduct/:product_id",cors(corsOptions), getparticulardata);
+app.get("/getproduct/:product_id", getparticulardata);
 
 //edit data with particular id
 /**
@@ -155,7 +150,7 @@ app.get("/getproduct/:product_id",cors(corsOptions), getparticulardata);
  *    200:
  *     description: success
  */
-app.put("/updateproduct/:product_id",cors(corsOptions), updateparticulardata);
+app.put("/updateproduct/:product_id", updateparticulardata);
 
 //delete data with particular id
 
@@ -177,7 +172,7 @@ app.put("/updateproduct/:product_id",cors(corsOptions), updateparticulardata);
  *    200:
  *     description: success
  */
-app.delete("/deleteproduct/:product_id",cors(corsOptions), deleteparticulardata);
+app.delete("/deleteproduct/:product_id", deleteparticulardata);
 
 //delete all data
 /**
@@ -192,7 +187,7 @@ app.delete("/deleteproduct/:product_id",cors(corsOptions), deleteparticulardata)
  *    500:
  *     description: error
  */
-app.delete("/deleteproduct",cors(corsOptions), deleteAlldata);
+app.delete("/deleteproduct", deleteAlldata);
 
 //export all data to csv
 /**
@@ -207,7 +202,7 @@ app.delete("/deleteproduct",cors(corsOptions), deleteAlldata);
  *    500:
  *     description: error
  */
-app.get("/exportproduct",cors(corsOptions), exportAlldata);
+app.get("/exportproduct", exportAlldata);
 
 //export data with product id to csv
 /**
@@ -228,7 +223,7 @@ app.get("/exportproduct",cors(corsOptions), exportAlldata);
  *    200:
  *     description: success
  */
-app.get("/exportproduct/:product_id",cors(corsOptions), exportparticulardata);
+app.get("/exportproduct/:product_id", exportparticulardata);
 
 app.listen(PORT, () => {
   console.log(`Server started at http://localhost:${PORT}`);
