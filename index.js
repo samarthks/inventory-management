@@ -17,7 +17,7 @@ const { exportAlldata, exportparticulardata } = require("./exportcsv");
 const app = express();
 const PORT = process.env.PORT||process.env.CLIENT_PORT;
 var corsOptions = {
-   origin:'https://github.com/samarthks/inventory-management.git',
+   origin:'https://inventory-manage-app.herokuapp.com',
   optionSuccessStatus: 200,
 };
 const swaggerOptions = {
