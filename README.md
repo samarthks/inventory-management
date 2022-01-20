@@ -2,8 +2,8 @@
 
 The application is designed in forms of api structure.
 Eaach CRUD operation has its own api.
-I have used postgresql,node.js,swagger UI,express for develooping the aapplication.
-I have chosed to export data as csv as additional feaature.
+I have used postgresql,node.js,swagger UI,express for developing the application.
+I have chosed to export data as csv as additional feature.
 
 **To run the application**
 
@@ -69,3 +69,10 @@ For reference of how application looks:
 You can look at this link: https://inventory-manage-app.herokuapp.com/product-apis/#/
 
 **Note: It is only for reference.Please follow all the steps above and run in localhost environment for better functioning of the app.**
+
+
+**Future Features:**
+
+1. Adding image in databaase and generating thumbnails.
+2. Filtering based on different fields
+3. Generate a report on inventory levels over time
