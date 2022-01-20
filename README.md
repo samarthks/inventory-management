@@ -1,9 +1,9 @@
 # Inventory-management
 
 The application is designed in forms of api structure.
-Eaach CRUD operation has its own api.
+Each CRUD operation has its own api.
 I have used postgresql,node.js,swagger UI,express for developing the application.
-I have chosed to export data as csv as additional feature.
+**As part of the application,I worked on "export product data as csv" as additional feature.**
 
 **To run the application**
 
