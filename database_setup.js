@@ -1,6 +1,6 @@
 require('dotenv').config()
 const { Pool } = require('pg');
-const { password } = require('pg/lib/defaults');
+
 
 // const pool = new Pool({
 //     host:process.env.DB_HOST,
